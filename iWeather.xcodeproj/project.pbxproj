@@ -13,7 +13,40 @@
 		961BE5CD2B8D17ED00D8741D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961BE5CB2B8D17ED00D8741D /* Main.storyboard */; };
 		961BE5CF2B8D17EF00D8741D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961BE5CE2B8D17EF00D8741D /* Assets.xcassets */; };
 		961BE5D22B8D17EF00D8741D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961BE5D02B8D17EF00D8741D /* LaunchScreen.storyboard */; };
+		961BE6052B8D19CF00D8741D /* YandexWeatherNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961BE6012B8D184000D8741D /* YandexWeatherNetwork.framework */; };
+		961BE6062B8D19CF00D8741D /* YandexWeatherNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961BE6012B8D184000D8741D /* YandexWeatherNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		961BE6002B8D184000D8741D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 961BE5FB2B8D184000D8741D /* YandexWeatherNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 961BE5E32B8D184000D8741D;
+			remoteInfo = YandexWeatherNetwork;
+		};
+		961BE6022B8D184000D8741D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 961BE5FB2B8D184000D8741D /* YandexWeatherNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 961BE5EB2B8D184000D8741D;
+			remoteInfo = YandexWeatherNetworkTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		961BE6072B8D19CF00D8741D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				961BE6062B8D19CF00D8741D /* YandexWeatherNetwork.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		961BE5C22B8D17ED00D8741D /* iWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +57,7 @@
 		961BE5CE2B8D17EF00D8741D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		961BE5D12B8D17EF00D8741D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		961BE5D32B8D17EF00D8741D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		961BE5FB2B8D184000D8741D /* YandexWeatherNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YandexWeatherNetwork.xcodeproj; path = YandexWeatherNetwork/YandexWeatherNetwork.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961BE6052B8D19CF00D8741D /* YandexWeatherNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +75,10 @@
 		961BE5B92B8D17ED00D8741D = {
 			isa = PBXGroup;
 			children = (
+				961BE5FB2B8D184000D8741D /* YandexWeatherNetwork.xcodeproj */,
 				961BE5C42B8D17ED00D8741D /* iWeather */,
 				961BE5C32B8D17ED00D8741D /* Products */,
+				961BE6042B8D19CF00D8741D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +104,22 @@
 			path = iWeather;
 			sourceTree = "<group>";
 		};
+		961BE5FC2B8D184000D8741D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				961BE6012B8D184000D8741D /* YandexWeatherNetwork.framework */,
+				961BE6032B8D184000D8741D /* YandexWeatherNetworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		961BE6042B8D19CF00D8741D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +130,7 @@
 				961BE5BE2B8D17ED00D8741D /* Sources */,
 				961BE5BF2B8D17ED00D8741D /* Frameworks */,
 				961BE5C02B8D17ED00D8741D /* Resources */,
+				961BE6072B8D19CF00D8741D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -113,12 +167,35 @@
 			mainGroup = 961BE5B92B8D17ED00D8741D;
 			productRefGroup = 961BE5C32B8D17ED00D8741D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 961BE5FC2B8D184000D8741D /* Products */;
+					ProjectRef = 961BE5FB2B8D184000D8741D /* YandexWeatherNetwork.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				961BE5C12B8D17ED00D8741D /* iWeather */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		961BE6012B8D184000D8741D /* YandexWeatherNetwork.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = YandexWeatherNetwork.framework;
+			remoteRef = 961BE6002B8D184000D8741D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		961BE6032B8D184000D8741D /* YandexWeatherNetworkTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = YandexWeatherNetworkTests.xctest;
+			remoteRef = 961BE6022B8D184000D8741D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		961BE5C02B8D17ED00D8741D /* Resources */ = {
