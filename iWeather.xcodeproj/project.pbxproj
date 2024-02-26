@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		961BE5C62B8D17ED00D8741D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE5C52B8D17ED00D8741D /* AppDelegate.swift */; };
 		961BE5C82B8D17ED00D8741D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE5C72B8D17ED00D8741D /* SceneDelegate.swift */; };
-		961BE5CA2B8D17ED00D8741D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE5C92B8D17ED00D8741D /* ViewController.swift */; };
-		961BE5CD2B8D17ED00D8741D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961BE5CB2B8D17ED00D8741D /* Main.storyboard */; };
 		961BE5CF2B8D17EF00D8741D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961BE5CE2B8D17EF00D8741D /* Assets.xcassets */; };
 		961BE5D22B8D17EF00D8741D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961BE5D02B8D17EF00D8741D /* LaunchScreen.storyboard */; };
 		961BE6052B8D19CF00D8741D /* YandexWeatherNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961BE6012B8D184000D8741D /* YandexWeatherNetwork.framework */; };
 		961BE6062B8D19CF00D8741D /* YandexWeatherNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961BE6012B8D184000D8741D /* YandexWeatherNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		961BE6122B8D1B1C00D8741D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 961BE6112B8D1B1C00D8741D /* Localizable.xcstrings */; };
+		961BE61E2B8D1C3B00D8741D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 961BE61D2B8D1C3B00D8741D /* Kingfisher */; };
+		961BE6212B8D1C4E00D8741D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 961BE6202B8D1C4E00D8741D /* SnapKit */; };
+		961BE6242B8D1DB900D8741D /* SVGKit in Frameworks */ = {isa = PBXBuildFile; productRef = 961BE6232B8D1DB900D8741D /* SVGKit */; };
+		961BE6262B8D1DBA00D8741D /* SVGKitSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 961BE6252B8D1DBA00D8741D /* SVGKitSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +55,11 @@
 		961BE5C22B8D17ED00D8741D /* iWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961BE5C52B8D17ED00D8741D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		961BE5C72B8D17ED00D8741D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		961BE5C92B8D17ED00D8741D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		961BE5CC2B8D17ED00D8741D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		961BE5CE2B8D17EF00D8741D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		961BE5D12B8D17EF00D8741D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		961BE5D32B8D17EF00D8741D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		961BE5FB2B8D184000D8741D /* YandexWeatherNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = YandexWeatherNetwork.xcodeproj; path = YandexWeatherNetwork/YandexWeatherNetwork.xcodeproj; sourceTree = "<group>"; };
+		961BE6112B8D1B1C00D8741D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961BE6212B8D1C4E00D8741D /* SnapKit in Frameworks */,
+				961BE61E2B8D1C3B00D8741D /* Kingfisher in Frameworks */,
+				961BE6262B8D1DBA00D8741D /* SVGKitSwift in Frameworks */,
+				961BE6242B8D1DB900D8741D /* SVGKit in Frameworks */,
 				961BE6052B8D19CF00D8741D /* YandexWeatherNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,13 +99,13 @@
 		961BE5C42B8D17ED00D8741D /* iWeather */ = {
 			isa = PBXGroup;
 			children = (
-				961BE5C52B8D17ED00D8741D /* AppDelegate.swift */,
-				961BE5C72B8D17ED00D8741D /* SceneDelegate.swift */,
-				961BE5C92B8D17ED00D8741D /* ViewController.swift */,
-				961BE5CB2B8D17ED00D8741D /* Main.storyboard */,
-				961BE5CE2B8D17EF00D8741D /* Assets.xcassets */,
-				961BE5D02B8D17EF00D8741D /* LaunchScreen.storyboard */,
-				961BE5D32B8D17EF00D8741D /* Info.plist */,
+				961BE6082B8D1A6700D8741D /* App */,
+				961BE60E2B8D1AC800D8741D /* Scenes */,
+				961BE60D2B8D1AC100D8741D /* Helper */,
+				961BE60B2B8D1AAF00D8741D /* Services */,
+				961BE60C2B8D1ABA00D8741D /* Extensions */,
+				961BE60A2B8D1AA600D8741D /* Protocols */,
+				961BE6092B8D1A8700D8741D /* Resources */,
 			);
 			path = iWeather;
 			sourceTree = "<group>";
@@ -120,6 +126,173 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		961BE6082B8D1A6700D8741D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				961BE6102B8D1AD900D8741D /* Transitions */,
+				961BE60F2B8D1AD400D8741D /* Flows */,
+				961BE5C52B8D17ED00D8741D /* AppDelegate.swift */,
+				961BE5C72B8D17ED00D8741D /* SceneDelegate.swift */,
+				961BE5D32B8D17EF00D8741D /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		961BE6092B8D1A8700D8741D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				961BE5CE2B8D17EF00D8741D /* Assets.xcassets */,
+				961BE5D02B8D17EF00D8741D /* LaunchScreen.storyboard */,
+				961BE6112B8D1B1C00D8741D /* Localizable.xcstrings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		961BE60A2B8D1AA600D8741D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				961BE6132B8D1B2F00D8741D /* Navigation */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		961BE60B2B8D1AAF00D8741D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		961BE60C2B8D1ABA00D8741D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		961BE60D2B8D1AC100D8741D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				961BE6172B8D1BE600D8741D /* Shared */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		961BE60E2B8D1AC800D8741D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				961BE6162B8D1B7D00D8741D /* Onboarding */,
+				961BE6152B8D1B7600D8741D /* Login */,
+				961BE6142B8D1B7100D8741D /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		961BE60F2B8D1AD400D8741D /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		961BE6102B8D1AD900D8741D /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		961BE6132B8D1B2F00D8741D /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		961BE6142B8D1B7100D8741D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				961BE6272B8D1E0600D8741D /* Home */,
+				961BE6292B8D1E1500D8741D /* Settings */,
+				961BE6282B8D1E0B00D8741D /* Profile */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		961BE6152B8D1B7600D8741D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		961BE6162B8D1B7D00D8741D /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		961BE6172B8D1BE600D8741D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				961BE61B2B8D1C0800D8741D /* Protocols */,
+				961BE61A2B8D1C0300D8741D /* Extensions */,
+				961BE6192B8D1BF600D8741D /* Reusable */,
+				961BE6182B8D1BF200D8741D /* Base */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		961BE6182B8D1BF200D8741D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		961BE6192B8D1BF600D8741D /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		961BE61A2B8D1C0300D8741D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		961BE61B2B8D1C0800D8741D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		961BE6272B8D1E0600D8741D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		961BE6282B8D1E0B00D8741D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		961BE6292B8D1E1500D8741D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +310,12 @@
 			dependencies = (
 			);
 			name = iWeather;
+			packageProductDependencies = (
+				961BE61D2B8D1C3B00D8741D /* Kingfisher */,
+				961BE6202B8D1C4E00D8741D /* SnapKit */,
+				961BE6232B8D1DB900D8741D /* SVGKit */,
+				961BE6252B8D1DBA00D8741D /* SVGKitSwift */,
+			);
 			productName = iWeather;
 			productReference = 961BE5C22B8D17ED00D8741D /* iWeather.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +344,11 @@
 				Base,
 			);
 			mainGroup = 961BE5B92B8D17ED00D8741D;
+			packageReferences = (
+				961BE61C2B8D1C3B00D8741D /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				961BE61F2B8D1C4E00D8741D /* XCRemoteSwiftPackageReference "SnapKit" */,
+				961BE6222B8D1DB900D8741D /* XCRemoteSwiftPackageReference "SVGKit" */,
+			);
 			productRefGroup = 961BE5C32B8D17ED00D8741D /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -204,7 +388,7 @@
 			files = (
 				961BE5D22B8D17EF00D8741D /* LaunchScreen.storyboard in Resources */,
 				961BE5CF2B8D17EF00D8741D /* Assets.xcassets in Resources */,
-				961BE5CD2B8D17ED00D8741D /* Main.storyboard in Resources */,
+				961BE6122B8D1B1C00D8741D /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +399,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961BE5CA2B8D17ED00D8741D /* ViewController.swift in Sources */,
 				961BE5C62B8D17ED00D8741D /* AppDelegate.swift in Sources */,
 				961BE5C82B8D17ED00D8741D /* SceneDelegate.swift in Sources */,
 			);
@@ -224,14 +407,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		961BE5CB2B8D17ED00D8741D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				961BE5CC2B8D17ED00D8741D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		961BE5D02B8D17EF00D8741D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -371,10 +546,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y5WSGR4QBW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = iWeather/Info.plist;
+				INFOPLIST_FILE = iWeather/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -399,10 +573,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y5WSGR4QBW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = iWeather/Info.plist;
+				INFOPLIST_FILE = iWeather/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -440,6 +613,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		961BE61C2B8D1C3B00D8741D /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
+			};
+		};
+		961BE61F2B8D1C4E00D8741D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		961BE6222B8D1DB900D8741D /* XCRemoteSwiftPackageReference "SVGKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVGKit/SVGKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		961BE61D2B8D1C3B00D8741D /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 961BE61C2B8D1C3B00D8741D /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		961BE6202B8D1C4E00D8741D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 961BE61F2B8D1C4E00D8741D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		961BE6232B8D1DB900D8741D /* SVGKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 961BE6222B8D1DB900D8741D /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKit;
+		};
+		961BE6252B8D1DBA00D8741D /* SVGKitSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 961BE6222B8D1DB900D8741D /* XCRemoteSwiftPackageReference "SVGKit" */;
+			productName = SVGKitSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 961BE5BA2B8D17ED00D8741D /* Project object */;
 }
