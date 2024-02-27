@@ -1,5 +1,18 @@
 {
   "sourceLanguage" : "en",
-  "strings" : {},
+  "strings" : {
+    "Couldn't load cities" : {
+
+    },
+    "Picture of the day" : {
+
+    },
+    "Refresh" : {
+
+    },
+    "Today" : {
+
+    }
+  },
   "version" : "1.0"
 }
