@@ -37,7 +37,7 @@ final class HomeViewModel: NSObject, IOViewModelType {
     //MARK: - IO
     enum Input {
         case viewDidLoad
-        case didSelectCity(city: HomeViewController.Item)
+        case didSelectCity(city: City)
     }
     
     enum Output {
@@ -50,7 +50,7 @@ final class HomeViewModel: NSObject, IOViewModelType {
             switch event {
             case .viewDidLoad:
                 fetchWeather()
-                
+                currentCity = self.cities.first!
             case .didSelectCity(let city):
                 return
             }
@@ -73,17 +73,18 @@ private extension HomeViewModel {
 //MARK: - CollectionView Rendering
 extension HomeViewModel: HomeViewCollectionViewRendering {
     
-    private func createDefaultEdgeInsets() -> NSDirectionalEdgeInsets {
-        .init(top: 5, leading: 0, bottom: 5, trailing: 15)
-    }
+    private var defaultInterItemSpacing: CGFloat { 20 }
+    private var defaultInterGroupSpacing: CGFloat { defaultInterItemSpacing }
     
     private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),                                                      heightDimension: .absolute(100.0))
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(1))
         
         let header = NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
             elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .bottomLeading)
+            alignment: .topLeading)
         
         return header
     }
@@ -97,12 +98,15 @@ extension HomeViewModel: HomeViewCollectionViewRendering {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .absolute(248)),
+                heightDimension: .absolute(215)),
             subitems: [item]
         )
+        group.interItemSpacing = .fixed(defaultInterItemSpacing)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = createDefaultEdgeInsets()
+        section.orthogonalScrollingBehavior = .continuous
+        section.interGroupSpacing = defaultInterGroupSpacing
+        section.contentInsets.bottom = 27
         
         return section
     }
@@ -113,20 +117,22 @@ extension HomeViewModel: HomeViewCollectionViewRendering {
                 widthDimension: .fractionalWidth(0.25),
                 heightDimension: .fractionalHeight(1.0)))
         
-        item.contentInsets = createDefaultEdgeInsets()
-        
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalWidth(1.0)
-            ),
+                heightDimension: .estimated(90)),
             subitems: [item]
         )
+        group.interItemSpacing = .fixed(defaultInterItemSpacing)
         
         let header = createSectionHeader()
         
         let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
         section.boundarySupplementaryItems = [header]
+        section.interGroupSpacing = defaultInterGroupSpacing
+        section.contentInsets.top = 6
+    
         return section
         
     }

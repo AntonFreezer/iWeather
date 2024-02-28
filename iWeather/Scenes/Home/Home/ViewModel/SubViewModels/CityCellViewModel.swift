@@ -33,11 +33,11 @@ struct CityCellViewModel: Hashable {
         "\(city.currentTemp)°C"
     }
     
-    private let isoFormatter: ISO8601DateFormatter = {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-        return formatter
-    }()
+//    private let isoFormatter: ISO8601DateFormatter = {
+//        let formatter = ISO8601DateFormatter()
+//        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+//        return formatter
+//    }()
     
     private var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
@@ -47,7 +47,7 @@ struct CityCellViewModel: Hashable {
     }
     
     public var currentDate: String {
-        guard let date = isoFormatter.date(from: city.date) else { return city.date }
+        let date = dateFormatter.date(from: city.date) ?? Date()
         return dateFormatter.string(from: date)
     }
     
@@ -55,7 +55,7 @@ struct CityCellViewModel: Hashable {
         let min: String = city.hours.map { $0.hour }.min() ?? "0"
         let max: String = city.hours.map { $0.hour }.max() ?? "0"
         
-        return "\(min)°C/\(max)"
+        return "\(min)°C/\(max)°C"
     }
     
     //MARK: - Lifecycle && Setup

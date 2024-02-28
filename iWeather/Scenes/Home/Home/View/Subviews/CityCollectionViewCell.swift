@@ -20,6 +20,7 @@ final class CityCollectionViewCell: UICollectionViewCell {
         
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 18
         
         return imageView
     }()
@@ -27,9 +28,10 @@ final class CityCollectionViewCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.font = .systemFont(ofSize: 20, weight: .heavy)
         label.textColor = .white
         label.textAlignment = .center
+        label.numberOfLines = 0
         
         return label
     }()
@@ -59,8 +61,8 @@ final class CityCollectionViewCell: UICollectionViewCell {
         }
         // nameLabel
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(15)
-            make.leading.trailing.top.equalTo(imageView).inset(8)
+            make.top.equalToSuperview().offset(28)
+            make.leading.trailing.equalToSuperview().inset(2)
         }
     }
     
@@ -70,11 +72,11 @@ final class CityCollectionViewCell: UICollectionViewCell {
         self.titleLabel.text = nil
     }
     
-    //MARK: - PictureCollectionViewCell ViewModel
+    //MARK: - ViewModel
     
     public func configure(with viewModel: CityCellViewModel) {
         // nameLabel
-        titleLabel.text = viewModel.name
+        titleLabel.text = "\(viewModel.name) \(viewModel.currentTemperature)"
         
         // imageView
         imageView.image = viewModel.image

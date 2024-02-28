@@ -55,12 +55,11 @@ final class HomeViewController: GenericViewController<HomeView> {
         self.showLoading()
         rootView.viewModel = self.viewModel
         rootView.collectionView?.delegate = self
-        rootView.backgroundColor = .black
     }
     
     private func bindViewModel() {
         viewModel.transform(input: output)
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink { [unowned self] event in
                 self.hideLoading()
                 
@@ -93,24 +92,24 @@ private extension HomeViewController {
     func configureDataSource() {
         dataSource = DataSource(
             collectionView: rootView.collectionView,
-            cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
-        
-            switch item {
-            case .city(let city):
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: CityCollectionViewCell.cellIdentifier,
-                    for: indexPath) as! CityCollectionViewCell
-                cell.configure(with: CityCellViewModel(city: city))
-                return cell
+            cellProvider: { collectionView, indexPath, item in
                 
-            case .weatherPerHour(let weatherPerHour):
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: WeatherPerHourCollectionViewCell.cellIdentifier,
-                    for: indexPath) as! WeatherPerHourCollectionViewCell
-                cell.configure(with: WeatherPerHourCellViewModel(hour: weatherPerHour))
-                return cell
-            }
-        })
+                switch item {
+                case .city(let city):
+                    let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: CityCollectionViewCell.cellIdentifier,
+                        for: indexPath) as! CityCollectionViewCell
+                    cell.configure(with: CityCellViewModel(city: city))
+                    return cell
+                    
+                case .weatherPerHour(let weatherPerHour):
+                    let cell = collectionView.dequeueReusableCell(
+                        withReuseIdentifier: WeatherPerHourCollectionViewCell.cellIdentifier,
+                        for: indexPath) as! WeatherPerHourCollectionViewCell
+                    cell.configure(with: WeatherPerHourCellViewModel(hour: weatherPerHour))
+                    return cell
+                }
+            })
         
         dataSource.supplementaryViewProvider = { 
             collectionView, kind, indexPath in
@@ -123,7 +122,9 @@ private extension HomeViewController {
                 header.update(with: .init(
                     text: .init(
                         text: String(localized: "Today"),
-                        font: .boldSystemFont(ofSize: 16),
+                        font: .systemFont(
+                            ofSize: 20,
+                            weight: .medium),
                         textColor: .white,
                         numberOfLines: 1)))
                 return header
@@ -139,12 +140,19 @@ private extension HomeViewController {
                              toSection: .citiesList)
         
         if let currentCity = viewModel.currentCity {
-            snapshot.appendItems(currentCity.hours.map { .weatherPerHour($0) },
-                                 toSection: .weatherPerHourList)
+            reloadHeaderView(with: currentCity)
+            
             snapshot.appendSections([.weatherPerHourList])
+            snapshot.appendItems(
+                currentCity.hours.map { .weatherPerHour($0) },
+                toSection: .weatherPerHourList)
         }
         
         dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+    }
+    
+    func reloadHeaderView(with city: City) {
+        rootView.headerView.configure(with: CityCellViewModel(city: city))
     }
 }
 
@@ -153,8 +161,12 @@ extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let city = dataSource.itemIdentifier(for: indexPath) else { return }
-        
-        subject.send(.didSelectCity(city: city))
+        switch city {
+        case .city(let city):
+            subject.send(.didSelectCity(city: city))
+        default:
+            return
+        }
     }
     
 }

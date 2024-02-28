@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96151F272B8F8B0C001177C5 /* CurrentCityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F262B8F8B0C001177C5 /* CurrentCityHeaderView.swift */; };
 		961BE5C62B8D17ED00D8741D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE5C52B8D17ED00D8741D /* AppDelegate.swift */; };
 		961BE5C82B8D17ED00D8741D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE5C72B8D17ED00D8741D /* SceneDelegate.swift */; };
 		961BE5CF2B8D17EF00D8741D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961BE5CE2B8D17EF00D8741D /* Assets.xcassets */; };
@@ -24,7 +25,6 @@
 		961BE6312B8D313F00D8741D /* NavigationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE6302B8D313F00D8741D /* NavigationFlow.swift */; };
 		961BE6332B8D315200D8741D /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE6322B8D315200D8741D /* Routable.swift */; };
 		961BE6352B8D315E00D8741D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE6342B8D315E00D8741D /* Coordinator.swift */; };
-		961BE6382B8D319900D8741D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE6372B8D319900D8741D /* UIImageView+Extension.swift */; };
 		961BE63C2B8D31DA00D8741D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE63B2B8D31DA00D8741D /* UIView+Extension.swift */; };
 		961BE63E2B8D31FC00D8741D /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE63D2B8D31FC00D8741D /* UILabel+Extension.swift */; };
 		961BE6402B8D320C00D8741D /* Loadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE63F2B8D320C00D8741D /* Loadable.swift */; };
@@ -89,6 +89,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		96151F262B8F8B0C001177C5 /* CurrentCityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCityHeaderView.swift; sourceTree = "<group>"; };
 		961BE5C22B8D17ED00D8741D /* iWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961BE5C52B8D17ED00D8741D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		961BE5C72B8D17ED00D8741D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +104,6 @@
 		961BE6302B8D313F00D8741D /* NavigationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFlow.swift; sourceTree = "<group>"; };
 		961BE6322B8D315200D8741D /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		961BE6342B8D315E00D8741D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		961BE6372B8D319900D8741D /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		961BE63B2B8D31DA00D8741D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		961BE63D2B8D31FC00D8741D /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		961BE63F2B8D320C00D8741D /* Loadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loadable.swift; sourceTree = "<group>"; };
@@ -243,7 +243,6 @@
 		961BE60C2B8D1ABA00D8741D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				961BE6372B8D319900D8741D /* UIImageView+Extension.swift */,
 				961BE63B2B8D31DA00D8741D /* UIView+Extension.swift */,
 			);
 			path = Extensions;
@@ -478,6 +477,7 @@
 		96488C0A2B8E390700B866B6 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				96151F262B8F8B0C001177C5 /* CurrentCityHeaderView.swift */,
 				96488C0B2B8E392F00B866B6 /* CityCollectionViewCell.swift */,
 				96488C0D2B8E393B00B866B6 /* WeatherPerHourCollectionViewCell.swift */,
 			);
@@ -603,6 +603,7 @@
 				961BE6482B8D328C00D8741D /* CustomView.swift in Sources */,
 				961BE65B2B8D35BF00D8741D /* TabBarCoordinator.swift in Sources */,
 				961BE64E2B8D32C100D8741D /* ErrorView.swift in Sources */,
+				96151F272B8F8B0C001177C5 /* CurrentCityHeaderView.swift in Sources */,
 				961BE6352B8D315E00D8741D /* Coordinator.swift in Sources */,
 				96488C072B8E1D5E00B866B6 /* City.swift in Sources */,
 				961BE6562B8D33AF00D8741D /* AppTransition.swift in Sources */,
@@ -613,7 +614,6 @@
 				967D79282B8E91AE00DCDD75 /* SVGImageProcessor.swift in Sources */,
 				961BE64A2B8D329D00D8741D /* NavigationController.swift in Sources */,
 				961BE6622B8D387B00D8741D /* HomeFlow.swift in Sources */,
-				961BE6382B8D319900D8741D /* UIImageView+Extension.swift in Sources */,
 				961BE66B2B8D399000D8741D /* HomeView.swift in Sources */,
 				961BE66D2B8D3B3B00D8741D /* HomeViewModel.swift in Sources */,
 				961BE6402B8D320C00D8741D /* Loadable.swift in Sources */,

@@ -18,6 +18,7 @@ final class HomeView: UIView {
     var viewModel: (any HomeViewCollectionViewRendering)?
     
     //MARK: - UI Components
+    let headerView = CurrentCityHeaderView()
     private(set) var collectionView: UICollectionView!
     
     //MARK: - Lifecycle & Setup
@@ -34,13 +35,22 @@ final class HomeView: UIView {
     }
     
     private func setupView() {
+        backgroundColor = .homeBackground
+        
         self.collectionView = createCollectionView()
-        addSubview(collectionView!)
+        addSubviews(headerView, collectionView!)
     }
     
     private func setupLayout() {
+        // headerView
+        headerView.snp.makeConstraints { make in
+            make.leading.top.trailing.equalToSuperview()
+            make.bottom.equalTo(collectionView.snp.top).offset(-30)
+        }
+        // collectionView
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(25)
+            make.bottom.equalToSuperview()
         }
     }
     
@@ -51,8 +61,10 @@ final class HomeView: UIView {
         }
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .purple
+        collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.keyboardDismissMode = .onDrag
         
         collectionView.register(
             CityCollectionViewCell.self,
@@ -62,7 +74,7 @@ final class HomeView: UIView {
             forCellWithReuseIdentifier: WeatherPerHourCollectionViewCell.cellIdentifier)
         collectionView.register(
             TextHeader.self,
-            forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: TextHeader.identifier)
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TextHeader.identifier)
                 
         return collectionView
     }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
     
@@ -18,7 +19,7 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
     private let containerView: UIView = {
         let view = UIView()
         
-        view.backgroundColor = .purple
+        view.backgroundColor = .hourBackground
         view.layer.cornerRadius = 14
         view.clipsToBounds = true
         
@@ -28,8 +29,7 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
         
         return imageView
     }()
@@ -37,7 +37,7 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
     private let tempLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 12, weight: .regular)
+        label.font = .systemFont(ofSize: 15, weight: .medium)
         label.textColor = .white
         label.textAlignment = .center
         
@@ -47,7 +47,7 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
     private let hourLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 12, weight: .bold)
+        label.font = .systemFont(ofSize: 15, weight: .semibold)
         label.textColor = .white
         label.textAlignment = .center
         
@@ -68,31 +68,36 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupCell() {
-        containerView.addSubviews(imageView, tempLabel)
-        
-        contentView.backgroundColor = .clear
         contentView.addSubviews(containerView, hourLabel)
+        containerView.addSubviews(imageView, tempLabel)
     }
     
     private func setupLayout() {
-        // imageView
-        imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        // nameLabel
-        tempLabel.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalTo(imageView).inset(16)
-        }
-        
         // containerView
         containerView.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(hourLabel.snp.top)
+        }
+        
+        // imageView
+        imageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(5)
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().multipliedBy(0.5)
+            make.size.equalTo(30)
+        }
+        
+        // tempLabel
+        tempLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom)
+            make.centerX.equalToSuperview()
         }
         
         // hourLabel
         hourLabel.snp.makeConstraints { make in
-            make.top.equalTo(containerView.snp.bottom)
-            make.leading.trailing.bottom.equalToSuperview().inset(5)
+            make.top.equalTo(tempLabel.snp.bottom)
+            make.bottom.centerX.equalToSuperview()
         }
     }
     
@@ -103,20 +108,23 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
         self.hourLabel.text = nil
     }
     
-    //MARK: - PictureCollectionViewCell ViewModel
+    //MARK: - ViewModel
     
     public func configure(with viewModel: WeatherPerHourCellViewModel) {
         // nameLabel
-        tempLabel.text = viewModel.hourFormatted
+        tempLabel.text = viewModel.currentTemperature
         
+        // hourLabel
+        hourLabel.text = viewModel.hourFormatted
+
         // imageView
-        imageView.setImage(
+        imageView.kf.setImage(
             with: viewModel.imageURL,
-            cornerRadius: 0,
-            resize: false,
-            crop: false,
-            resizeMode: .none,
-            processorOptions: [SVGImgProcessor(identifier: "com.iWeather.\(Self.cellIdentifier)SVGProcessor")])
+            placeholder: UIImage(named: "placeholder"),
+            options: [.cacheMemoryOnly,
+                      .transition(.fade(0.15)),
+                      .processor(SVGImgProcessor())
+                     ])
         
     }
 }
