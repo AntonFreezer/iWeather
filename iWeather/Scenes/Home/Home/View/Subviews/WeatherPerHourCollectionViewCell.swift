@@ -77,26 +77,25 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
         containerView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(hourLabel.snp.top)
+            make.bottom.equalTo(tempLabel)
         }
         
         // imageView
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(5)
+            make.top.equalToSuperview().inset(10)
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().multipliedBy(0.5)
             make.size.equalTo(30)
         }
         
         // tempLabel
         tempLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom)
+            make.top.equalTo(imageView.snp.bottom).offset(-10)
             make.centerX.equalToSuperview()
         }
         
         // hourLabel
         hourLabel.snp.makeConstraints { make in
-            make.top.equalTo(tempLabel.snp.bottom)
+            make.top.equalTo(containerView.snp.bottom).offset(3)
             make.bottom.centerX.equalToSuperview()
         }
     }

@@ -13,6 +13,11 @@
 		96151F502B90708E001177C5 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96151F4C2B90708D001177C5 /* Poppins-Regular.ttf */; };
 		96151F512B90708E001177C5 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96151F4D2B90708D001177C5 /* Poppins-Medium.ttf */; };
 		96151F522B90708E001177C5 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96151F4E2B90708E001177C5 /* Poppins-SemiBold.ttf */; };
+		96151F542B9080D2001177C5 /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F532B9080D2001177C5 /* CustomButtonView.swift */; };
+		96151F582B90E2A7001177C5 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F572B90E2A7001177C5 /* SettingsCoordinator.swift */; };
+		96151F5B2B90E2E7001177C5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F5A2B90E2E7001177C5 /* SettingsViewController.swift */; };
+		96151F5E2B90E458001177C5 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F5D2B90E458001177C5 /* ProfileCoordinator.swift */; };
+		96151F602B90E4A3001177C5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F5F2B90E4A3001177C5 /* ProfileViewController.swift */; };
 		961BE5C62B8D17ED00D8741D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE5C52B8D17ED00D8741D /* AppDelegate.swift */; };
 		961BE5C82B8D17ED00D8741D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE5C72B8D17ED00D8741D /* SceneDelegate.swift */; };
 		961BE5CF2B8D17EF00D8741D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961BE5CE2B8D17EF00D8741D /* Assets.xcassets */; };
@@ -100,6 +105,11 @@
 		96151F4C2B90708D001177C5 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		96151F4D2B90708D001177C5 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		96151F4E2B90708E001177C5 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		96151F532B9080D2001177C5 /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
+		96151F572B90E2A7001177C5 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		96151F5A2B90E2E7001177C5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		96151F5D2B90E458001177C5 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		96151F5F2B90E4A3001177C5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		961BE5C22B8D17ED00D8741D /* iWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961BE5C52B8D17ED00D8741D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		961BE5C72B8D17ED00D8741D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +181,22 @@
 				96151F4B2B90708D001177C5 /* Roboto-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		96151F592B90E2D3001177C5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				96151F5A2B90E2E7001177C5 /* SettingsViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		96151F5C2B90E449001177C5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				96151F5F2B90E4A3001177C5 /* ProfileViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		961BE5B92B8D17ED00D8741D = {
@@ -323,8 +349,8 @@
 			children = (
 				961BE6592B8D358000D8741D /* TabBar */,
 				961BE6272B8D1E0600D8741D /* Home */,
-				961BE6292B8D1E1500D8741D /* Settings */,
 				961BE6282B8D1E0B00D8741D /* Profile */,
+				961BE6292B8D1E1500D8741D /* Settings */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -348,8 +374,8 @@
 			children = (
 				961BE61B2B8D1C0800D8741D /* Protocols */,
 				961BE61A2B8D1C0300D8741D /* Extensions */,
-				961BE6192B8D1BF600D8741D /* Reusable */,
 				961BE6182B8D1BF200D8741D /* Base */,
+				961BE6192B8D1BF600D8741D /* Reusable */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -371,6 +397,7 @@
 				961BE64D2B8D32C100D8741D /* ErrorView.swift */,
 				96488C012B8E0A4700B866B6 /* SectionHeaderCollectionReusableView.swift */,
 				96488C032B8E12CE00B866B6 /* CustomLabelView.swift */,
+				96151F532B9080D2001177C5 /* CustomButtonView.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -396,8 +423,8 @@
 		961BE6272B8D1E0600D8741D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				96488C052B8E1D0800B866B6 /* Model */,
 				961BE6632B8D390700D8741D /* HomeCoordinator.swift */,
+				96488C052B8E1D0800B866B6 /* Model */,
 				961BE6652B8D393700D8741D /* ViewController */,
 				961BE6662B8D394400D8741D /* ViewModel */,
 				961BE6672B8D394900D8741D /* View */,
@@ -408,6 +435,8 @@
 		961BE6282B8D1E0B00D8741D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				96151F5D2B90E458001177C5 /* ProfileCoordinator.swift */,
+				96151F5C2B90E449001177C5 /* ViewController */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -415,6 +444,8 @@
 		961BE6292B8D1E1500D8741D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				96151F572B90E2A7001177C5 /* SettingsCoordinator.swift */,
+				96151F592B90E2D3001177C5 /* ViewController */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -631,6 +662,7 @@
 				961BE65B2B8D35BF00D8741D /* TabBarCoordinator.swift in Sources */,
 				961BE64E2B8D32C100D8741D /* ErrorView.swift in Sources */,
 				96151F272B8F8B0C001177C5 /* CurrentCityHeaderView.swift in Sources */,
+				96151F5E2B90E458001177C5 /* ProfileCoordinator.swift in Sources */,
 				961BE6352B8D315E00D8741D /* Coordinator.swift in Sources */,
 				96488C072B8E1D5E00B866B6 /* City.swift in Sources */,
 				961BE6562B8D33AF00D8741D /* AppTransition.swift in Sources */,
@@ -640,6 +672,7 @@
 				961BE6332B8D315200D8741D /* Routable.swift in Sources */,
 				967D79282B8E91AE00DCDD75 /* SVGImageProcessor.swift in Sources */,
 				961BE64A2B8D329D00D8741D /* NavigationController.swift in Sources */,
+				96151F542B9080D2001177C5 /* CustomButtonView.swift in Sources */,
 				961BE6622B8D387B00D8741D /* HomeFlow.swift in Sources */,
 				961BE66B2B8D399000D8741D /* HomeView.swift in Sources */,
 				961BE66D2B8D3B3B00D8741D /* HomeViewModel.swift in Sources */,
@@ -649,6 +682,7 @@
 				961BE6422B8D322600D8741D /* ErrorPresentable.swift in Sources */,
 				961BE62B2B8D20C000D8741D /* AppFlow.swift in Sources */,
 				961BE5C82B8D17ED00D8741D /* SceneDelegate.swift in Sources */,
+				96151F582B90E2A7001177C5 /* SettingsCoordinator.swift in Sources */,
 				961BE6512B8D331800D8741D /* DIContainer.swift in Sources */,
 				961BE6312B8D313F00D8741D /* NavigationFlow.swift in Sources */,
 				961BE6692B8D397D00D8741D /* HomeViewController.swift in Sources */,
@@ -656,6 +690,7 @@
 				96488C002B8DD85600B866B6 /* WeatherPerHourCellViewModel.swift in Sources */,
 				96488C092B8E20F300B866B6 /* WeatherPerHour.swift in Sources */,
 				961BE6442B8D323600D8741D /* Configurable.swift in Sources */,
+				96151F5B2B90E2E7001177C5 /* SettingsViewController.swift in Sources */,
 				961BE6642B8D390700D8741D /* HomeCoordinator.swift in Sources */,
 				961BE6582B8D33E000D8741D /* HomeTransition.swift in Sources */,
 				961BE62F2B8D311C00D8741D /* IOViewModel.swift in Sources */,
@@ -663,6 +698,7 @@
 				961BE63C2B8D31DA00D8741D /* UIView+Extension.swift in Sources */,
 				961BE62D2B8D310800D8741D /* BasicViewModelType.swift in Sources */,
 				96488C0C2B8E392F00B866B6 /* CityCollectionViewCell.swift in Sources */,
+				96151F602B90E4A3001177C5 /* ProfileViewController.swift in Sources */,
 				96151F4A2B907057001177C5 /* UIFont+Extension.swift in Sources */,
 				961BE64C2B8D32B200D8741D /* LoadingView.swift in Sources */,
 			);

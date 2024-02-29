@@ -51,6 +51,10 @@ final class HomeViewController: GenericViewController<HomeView> {
         subject.send(.viewDidLoad)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     private func setupView() {
         self.showLoading()
         rootView.viewModel = self.viewModel
@@ -150,7 +154,14 @@ private extension HomeViewController {
     }
     
     func reloadHeaderView(with city: City) {
-        rootView.headerView.configure(with: CityCellViewModel(city: city))
+        rootView.headerView.configure(
+            with: CityCellViewModel(city: city),
+            profileHandler: { 
+                self.subject.send(.didTapProfile)
+            },
+            settingsHandler: {
+                self.subject.send(.didTapSettings)
+            })
     }
 }
 
@@ -169,7 +180,7 @@ extension HomeViewController: UICollectionViewDelegate {
     
 }
 
-//MARK: - Item
+//MARK: - Diffable DataSource Item
 extension HomeViewController {
     enum Item: Hashable {
         case city(City)

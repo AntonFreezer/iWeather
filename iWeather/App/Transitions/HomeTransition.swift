@@ -9,8 +9,8 @@ import Foundation
 
 enum HomeTransition {
     case initialScreen
-    //    case profileScreen
-    //    case settingsScreen
+    case profileScreen
+    case settingsScreen
     
     var identifier: String { "\(self)" }
     
@@ -18,10 +18,10 @@ enum HomeTransition {
         switch self {
         case .initialScreen:
             return HomeCoordinator(router: router)
-            //        case .profileScreen:
-            //            return
-            //        case .settingsScreen:
-            //            return
+        case .profileScreen:
+            return ProfileCoordinator(router: router)
+        case .settingsScreen:
+            return SettingsCoordinator(router: router)
         }
     }
 }

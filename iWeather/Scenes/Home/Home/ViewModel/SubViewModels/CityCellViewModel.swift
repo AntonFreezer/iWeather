@@ -33,12 +33,6 @@ struct CityCellViewModel: Hashable {
         "\(city.currentTemp)°C"
     }
     
-//    private let isoFormatter: ISO8601DateFormatter = {
-//        let formatter = ISO8601DateFormatter()
-//        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-//        return formatter
-//    }()
-    
     private var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM EEE"

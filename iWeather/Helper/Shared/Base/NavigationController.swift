@@ -23,8 +23,8 @@ final class NavigationController: UINavigationController {
     }
     
     private func makeStandardBarAppearance() -> UINavigationBarAppearance {
-        let appearance = UINavigationBarAppearance()
         
+        let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = [
             .foregroundColor: UIColor.white,

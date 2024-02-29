@@ -21,6 +21,9 @@ final class CurrentCityHeaderView: UIView {
         return imageView
     }()
     
+    private let profileButtonView = CustomButtonView()
+    private let settingsButtonView = CustomButtonView()
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         
@@ -97,6 +100,7 @@ final class CurrentCityHeaderView: UIView {
     private func setupView() {
         backgroundColor = .clear
         addSubviews(imageView,
+                    profileButtonView, settingsButtonView,
                     nameLabel, descriptionLabel,
                     currentTempLabel, conditionLabel,
                     swipeLabel, swipeImageView)
@@ -107,10 +111,24 @@ final class CurrentCityHeaderView: UIView {
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        // profileButtonView
+        profileButtonView.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide)
+            make.leading.equalToSuperview().offset(25)
+            make.size.equalTo(34)
+        }
+        // settingsButtonView
+        settingsButtonView.snp.makeConstraints { make in
+            make.centerY.equalTo(profileButtonView)
+            make.trailing.equalToSuperview().offset(-27)
+            make.height.equalTo(18)
+            make.width.equalTo(34)
+        }
         // nameLabel
         nameLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(25)
+            make.trailing.equalToSuperview().multipliedBy(0.5)
         }
         // descriptionlabel
         descriptionLabel.snp.makeConstraints { make in
@@ -142,12 +160,25 @@ final class CurrentCityHeaderView: UIView {
     }
     
     //MARK: - ViewModel
-    public func configure(with viewModel: CityCellViewModel) {
+    public func configure(
+        with viewModel: CityCellViewModel,
+        profileHandler: (() -> Void)? = nil,
+        settingsHandler: (() -> Void)? = nil) {
+            
+        // profileButtonView
+        profileButtonView.update(with: .init(
+            buttonTitle: "",
+            image: .profile,
+            buttonHandler: profileHandler))
+        // settingsButtonView
+        settingsButtonView.update(with: .init(
+            buttonTitle: "",
+            image: .settings,
+            buttonHandler: settingsHandler))
         // nameLabel
         nameLabel.text = viewModel.name
         // descriptionlabel
-        descriptionLabel.text =
-        "\(viewModel.currentDate) \(viewModel.temperatureInterval)"
+        descriptionLabel.text = viewModel.currentDate + viewModel.temperatureInterval
         // currentTempLabel
         currentTempLabel.text = viewModel.currentTemperature
         // conditionLabel

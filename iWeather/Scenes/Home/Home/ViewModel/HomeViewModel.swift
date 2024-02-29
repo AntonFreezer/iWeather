@@ -37,6 +37,8 @@ final class HomeViewModel: NSObject, IOViewModelType {
     //MARK: - IO
     enum Input {
         case viewDidLoad
+        case didTapProfile
+        case didTapSettings
         case didSelectCity(city: City)
     }
     
@@ -51,6 +53,14 @@ final class HomeViewModel: NSObject, IOViewModelType {
             case .viewDidLoad:
                 fetchWeather()
                 currentCity = self.cities.first!
+            case .didTapProfile:
+                if let router = router as? (any HomeRouter) {
+                    router.process(route: .profileScreen)
+                }
+            case .didTapSettings:
+                if let router = router as? (any HomeRouter) {
+                    router.process(route: .settingsScreen)
+                }
             case .didSelectCity(let city):
                 return
             }
@@ -120,7 +130,7 @@ extension HomeViewModel: HomeViewCollectionViewRendering {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(90)),
+                heightDimension: .estimated(100)),
             subitems: [item]
         )
         group.interItemSpacing = .fixed(defaultInterItemSpacing)
@@ -139,7 +149,3 @@ extension HomeViewModel: HomeViewCollectionViewRendering {
     
 }
 
-//MARK: - Sections
-extension HomeViewModel {
-    
-}
