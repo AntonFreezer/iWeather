@@ -25,13 +25,24 @@ final class CityCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    private let titleLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 20, weight: .heavy)
+        label.font = .poppinsSemiBold(ofSize: 20)
         label.textColor = .white
-        label.textAlignment = .center
+        label.textAlignment = .left
         label.numberOfLines = 0
+        
+        return label
+    }()
+    
+    private let tempLabel: UILabel = {
+        let label = UILabel()
+        
+        label.font = .poppinsSemiBold(ofSize: 18.8)
+        label.textColor = .white
+        label.textAlignment = .left
+        label.numberOfLines = 1
         
         return label
     }()
@@ -51,7 +62,7 @@ final class CityCollectionViewCell: UICollectionViewCell {
     
     private func setupCell() {
         contentView.backgroundColor = .clear
-        contentView.addSubviews(imageView, titleLabel)
+        contentView.addSubviews(imageView, nameLabel, tempLabel)
     }
     
     private func setupLayout() {
@@ -60,27 +71,34 @@ final class CityCollectionViewCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
         // nameLabel
-        titleLabel.snp.makeConstraints { make in
+        nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(28)
-            make.leading.trailing.equalToSuperview().inset(2)
+            make.leading.equalToSuperview().inset(19)
+            make.trailing.equalToSuperview().inset(5)
+        }
+        // tempLabel
+        tempLabel.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom).offset(2)
+            make.leading.trailing.equalTo(nameLabel)
         }
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         self.imageView.image = nil
-        self.titleLabel.text = nil
+        self.nameLabel.text = nil
+        self.tempLabel.text = nil
     }
     
     //MARK: - ViewModel
     
     public func configure(with viewModel: CityCellViewModel) {
-        // nameLabel
-        titleLabel.text = "\(viewModel.name) \(viewModel.currentTemperature)"
-        
         // imageView
         imageView.image = viewModel.image
-        
+        // nameLabel
+        nameLabel.text = viewModel.name
+        // tempLabel
+        tempLabel.text = viewModel.currentTemperature
     }
 }
 

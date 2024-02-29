@@ -24,7 +24,7 @@ final class CurrentCityHeaderView: UIView {
     private let nameLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 22, weight: .heavy)
+        label.font = .poppinsSemiBold(ofSize: 28)
         label.textColor = .white
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -35,7 +35,7 @@ final class CurrentCityHeaderView: UIView {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 14, weight: .light)
+        label.font = .poppinsRegular(ofSize: 12.91)
         label.textColor = .white
         label.textAlignment = .left
         label.numberOfLines = 0
@@ -46,7 +46,7 @@ final class CurrentCityHeaderView: UIView {
     private let currentTempLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 24, weight: .heavy)
+        label.font = .poppinsSemiBold(ofSize: 36)
         label.textColor = .white
         label.textAlignment = .right
         
@@ -56,7 +56,7 @@ final class CurrentCityHeaderView: UIView {
     private let conditionLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 22, weight: .bold)
+        label.font = .poppinsRegular(ofSize: 21.33)
         label.textColor = .white
         label.textAlignment = .right
         label.numberOfLines = 0
@@ -67,9 +67,9 @@ final class CurrentCityHeaderView: UIView {
     private let swipeLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 14, weight: .thin)
-        label.textColor = .white
-        label.textAlignment = .left
+        label.font = .robotoRegular(ofSize: 12)
+        label.textColor = .white.withAlphaComponent(0.6)
+        label.textAlignment = .center
         label.text = String(localized: "Swipe down for details")
         
         return label

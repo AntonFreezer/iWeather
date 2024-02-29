@@ -37,7 +37,7 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
     private let tempLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 15, weight: .medium)
+        label.font = .poppinsMedium(ofSize: 15)
         label.textColor = .white
         label.textAlignment = .center
         
@@ -47,7 +47,7 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
     private let hourLabel: UILabel = {
         let label = UILabel()
         
-        label.font = .systemFont(ofSize: 15, weight: .semibold)
+        label.font = .poppinsSemiBold(ofSize: 15)
         label.textColor = .white
         label.textAlignment = .center
         

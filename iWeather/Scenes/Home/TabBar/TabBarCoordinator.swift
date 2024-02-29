@@ -84,7 +84,7 @@ final class TabBarCoordinator<R: AppRouter>: NSObject, UITabBarControllerDelegat
 //MARK: - Coordinator
 extension TabBarCoordinator: Coordinator {
     func start() {
-        appRouter.navigationController.setNavigationBarHidden(true, animated: false)
+//        appRouter.navigationController.setNavigationBarHidden(true, animated: false)
         
         let transitions: [TabBarItem] = [.home(nil)]
 

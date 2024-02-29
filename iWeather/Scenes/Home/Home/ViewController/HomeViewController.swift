@@ -122,9 +122,7 @@ private extension HomeViewController {
                 header.update(with: .init(
                     text: .init(
                         text: String(localized: "Today"),
-                        font: .systemFont(
-                            ofSize: 20,
-                            weight: .medium),
+                        font: .poppinsMedium(ofSize: 20),
                         textColor: .white,
                         numberOfLines: 1)))
                 return header
