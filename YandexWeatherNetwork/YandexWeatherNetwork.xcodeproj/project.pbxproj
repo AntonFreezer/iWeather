@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96151F712B90EB09001177C5 /* YandexWeatherNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F702B90EB09001177C5 /* YandexWeatherNetworkClient.swift */; };
+		96151F732B90EB82001177C5 /* YandexNetworkWeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F722B90EB82001177C5 /* YandexNetworkWeatherRequest.swift */; };
+		96151F752B90EBBC001177C5 /* YandexWeatherNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F742B90EBBC001177C5 /* YandexWeatherNetworkError.swift */; };
 		961BE5EC2B8D184000D8741D /* YandexWeatherNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961BE5E32B8D184000D8741D /* YandexWeatherNetwork.framework */; };
 		961BE5F12B8D184000D8741D /* YandexWeatherNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE5F02B8D184000D8741D /* YandexWeatherNetworkTests.swift */; };
 		961BE5F22B8D184000D8741D /* YandexWeatherNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 961BE5E62B8D184000D8741D /* YandexWeatherNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96C872412B90FD3A0016727A /* env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 96C872402B90FD3A0016727A /* env.xcconfig */; };
+		96C872482B9117CB0016727A /* YandexWeatherNetworkForecastsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C872472B9117CB0016727A /* YandexWeatherNetworkForecastsEntity.swift */; };
+		96C8724A2B911D270016727A /* YandexWeatherNetworkForecastsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C872492B911D270016727A /* YandexWeatherNetworkForecastsRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,10 +29,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		96151F702B90EB09001177C5 /* YandexWeatherNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkClient.swift; sourceTree = "<group>"; };
+		96151F722B90EB82001177C5 /* YandexNetworkWeatherRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexNetworkWeatherRequest.swift; sourceTree = "<group>"; };
+		96151F742B90EBBC001177C5 /* YandexWeatherNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkError.swift; sourceTree = "<group>"; };
 		961BE5E32B8D184000D8741D /* YandexWeatherNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YandexWeatherNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		961BE5E62B8D184000D8741D /* YandexWeatherNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YandexWeatherNetwork.h; sourceTree = "<group>"; };
 		961BE5EB2B8D184000D8741D /* YandexWeatherNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YandexWeatherNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		961BE5F02B8D184000D8741D /* YandexWeatherNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkTests.swift; sourceTree = "<group>"; };
+		96C8723F2B90FC0C0016727A /* YandexWeatherNetwork.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = YandexWeatherNetwork.xctestplan; sourceTree = "<group>"; };
+		96C872402B90FD3A0016727A /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		96C872472B9117CB0016727A /* YandexWeatherNetworkForecastsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkForecastsEntity.swift; sourceTree = "<group>"; };
+		96C872492B911D270016727A /* YandexWeatherNetworkForecastsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkForecastsRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +83,11 @@
 			isa = PBXGroup;
 			children = (
 				961BE5E62B8D184000D8741D /* YandexWeatherNetwork.h */,
+				96151F702B90EB09001177C5 /* YandexWeatherNetworkClient.swift */,
+				96151F722B90EB82001177C5 /* YandexNetworkWeatherRequest.swift */,
+				96151F742B90EBBC001177C5 /* YandexWeatherNetworkError.swift */,
+				96C872462B9101780016727A /* Entities */,
+				96C872452B91016D0016727A /* Requests */,
 			);
 			path = YandexWeatherNetwork;
 			sourceTree = "<group>";
@@ -77,9 +95,27 @@
 		961BE5EF2B8D184000D8741D /* YandexWeatherNetworkTests */ = {
 			isa = PBXGroup;
 			children = (
+				96C8723F2B90FC0C0016727A /* YandexWeatherNetwork.xctestplan */,
 				961BE5F02B8D184000D8741D /* YandexWeatherNetworkTests.swift */,
+				96C872402B90FD3A0016727A /* env.xcconfig */,
 			);
 			path = YandexWeatherNetworkTests;
+			sourceTree = "<group>";
+		};
+		96C872452B91016D0016727A /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				96C872492B911D270016727A /* YandexWeatherNetworkForecastsRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		96C872462B9101780016727A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				96C872472B9117CB0016727A /* YandexWeatherNetworkForecastsEntity.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +180,7 @@
 				TargetAttributes = {
 					961BE5E22B8D184000D8741D = {
 						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
 					};
 					961BE5EA2B8D184000D8741D = {
 						CreatedOnToolsVersion = 15.2;
@@ -181,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96C872412B90FD3A0016727A /* env.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96C8724A2B911D270016727A /* YandexWeatherNetworkForecastsRequest.swift in Sources */,
+				96151F732B90EB82001177C5 /* YandexNetworkWeatherRequest.swift in Sources */,
+				96151F712B90EB09001177C5 /* YandexWeatherNetworkClient.swift in Sources */,
+				96151F752B90EBBC001177C5 /* YandexWeatherNetworkError.swift in Sources */,
+				96C872482B9117CB0016727A /* YandexWeatherNetworkForecastsEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +384,7 @@
 		961BE5F62B8D184000D8741D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -364,6 +408,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -372,6 +417,7 @@
 		961BE5F72B8D184000D8741D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -402,7 +448,9 @@
 		};
 		961BE5F92B8D184000D8741D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96C872402B90FD3A0016727A /* env.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y5WSGR4QBW;
@@ -419,6 +467,7 @@
 		961BE5FA2B8D184000D8741D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y5WSGR4QBW;

@@ -1,0 +1,27 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Couldn't load cities" : {
+
+    },
+    "Hello World!" : {
+
+    },
+    "Now" : {
+
+    },
+    "Picture of the day" : {
+
+    },
+    "Refresh" : {
+
+    },
+    "Swipe down for details" : {
+
+    },
+    "Today" : {
+
+    }
+  },
+  "version" : "1.0"
+}
