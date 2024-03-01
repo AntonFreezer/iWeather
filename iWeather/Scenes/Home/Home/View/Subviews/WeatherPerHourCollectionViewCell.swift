@@ -107,8 +107,7 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
         self.hourLabel.text = nil
     }
     
-    //MARK: - ViewModel
-    
+    //MARK: - Public
     public func configure(with viewModel: WeatherPerHourCellViewModel) {
         // nameLabel
         tempLabel.text = viewModel.currentTemperature
@@ -125,5 +124,9 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
                       .processor(SVGImgProcessor())
                      ])
         
+    }
+    
+    public func setHourLabelAsCurrent() {
+        self.hourLabel.text = "Now"
     }
 }

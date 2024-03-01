@@ -14,7 +14,7 @@ struct CityCellViewModel: Hashable {
     
     public var image: UIImage {
         switch city.condition {
-        case .clear:
+        case "clear":
             return UIImage(named: "clear")!
         default:
             return UIImage(named: "overcastWeather")!
@@ -26,7 +26,7 @@ struct CityCellViewModel: Hashable {
     }
     
     public var condition: String {
-        city.condition.localized()
+        city.condition
     }
     
     public var currentTemperature: String {

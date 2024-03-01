@@ -15,7 +15,7 @@ final class HomeCoordinator<R: Routable> {
     }
 
     private lazy var primaryViewController: UIViewController = {
-        let viewModel = HomeViewModel(router: router)
+        let viewModel = HomeViewModel(router: router, networkService: DIContainer.shared.yandexWeatherNetworkService)
         let viewController = HomeViewController(viewModel: viewModel)
         return viewController
     }()

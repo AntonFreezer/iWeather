@@ -12,11 +12,12 @@ final class LoadingView: CustomView {
     let spinner = UIActivityIndicatorView(style: .large)
     
     override func configure() {
+        spinner.color = .white
         spinner.hidesWhenStopped = true
         addSubview(spinner)
         
         spinner.snp.makeConstraints {
-            $0.size.equalTo(60)
+            $0.size.equalTo(90)
             $0.center.equalToSuperview()
         }
     }

@@ -9,7 +9,8 @@ import Foundation
 
 struct WeatherPerHour: Hashable {
     var hour: String
+    var isCurrentHour: Bool
     var currentTemp: String
-    var iconURL: String
+    var iconName: String
 }
 

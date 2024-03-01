@@ -56,32 +56,7 @@ final class HomeViewController: GenericViewController<HomeView> {
         self.navigationController?.navigationBar.isHidden = true
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        let section: HomeViewModel.Section = .weatherPerHourList
-        
-        if let currentCity = viewModel.currentCity,
-           let sectionIndex = HomeViewModel.Section.allCases.firstIndex(of: section) {
-            
-            let timezoneIdentifier = currentCity.timezoneIdentifier
-            let dateFormatter = DateFormatter()
-            dateFormatter.timeZone = TimeZone(identifier: timezoneIdentifier)
-            
-            let currentHour = Calendar.current.component(.hour, from: dateFormatter.date(from: currentCity.date)!)
-            
-            let hourIndexToScroll = currentHour - 1
-            guard 0..<24 ~= hourIndexToScroll else { return }
-            
-            let indexPath = IndexPath(item: hourIndexToScroll, section: sectionIndex)
-            rootView.collectionView.scrollToItem(
-                at: indexPath,
-                at: .left,
-                animated: true)
-        }
-    }
     private func setupView() {
-        self.showLoading()
         rootView.viewModel = self.viewModel
         rootView.collectionView?.delegate = self
     }
@@ -95,6 +70,7 @@ final class HomeViewController: GenericViewController<HomeView> {
                 switch event {
                 case .didLoadCities:
                     self.applyShapshot()
+                    self.scrollToCurrentHour()
                 case .didReceiveError(let error):
                     self.showError(error)
                 }
@@ -190,16 +166,36 @@ private extension HomeViewController {
     }
 }
 
-//MARK: - CollectionView Delegate
+//MARK: - CollectionView Delegate && Custom
 extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let city = dataSource.itemIdentifier(for: indexPath) else { return }
-        switch city {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
+        switch item {
         case .city(let city):
             subject.send(.didSelectCity(city: city))
         default:
             return
+        }
+    }
+    
+    private func scrollToCurrentHour() {
+        if let currentCity = viewModel.currentCity,
+           let sectionIndex = snapshot.indexOfSection(.weatherPerHourList) {
+            
+            let timezone = TimeZone(identifier: currentCity.timezoneIdentifier) ?? .autoupdatingCurrent
+            let currentHour = Calendar.current
+                .dateComponents(in: timezone, from: Date()).hour ?? 0
+            
+            let hourIndexToScroll = currentHour - 1
+            
+            guard 0..<24 ~= hourIndexToScroll else { return }
+            
+            let indexPath = IndexPath(item: hourIndexToScroll, section: sectionIndex)
+            rootView.collectionView.scrollToItem(
+                at: indexPath,
+                at: .left,
+                animated: true)
         }
     }
     

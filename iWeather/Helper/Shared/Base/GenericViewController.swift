@@ -30,7 +30,7 @@ extension GenericViewController: Loadable {
         loadingView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        loadingView.backgroundColor = view.backgroundColor
+        loadingView.backgroundColor = view.backgroundColor?.withAlphaComponent(0.85)
     }
     
     func hideLoading() {

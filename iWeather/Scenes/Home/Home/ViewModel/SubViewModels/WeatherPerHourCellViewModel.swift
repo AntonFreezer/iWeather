@@ -14,7 +14,8 @@ struct WeatherPerHourCellViewModel: Hashable {
     private let hour: WeatherPerHour
     
     public var imageURL: URL? {
-        URL(string: hour.iconURL)
+        let urlString = "https://yastatic.net/weather/i/icons/funky/dark/\(hour.iconName).svg"
+        return URL(string: urlString)
     }
     
     public var currentTemperature: String {
@@ -22,6 +23,10 @@ struct WeatherPerHourCellViewModel: Hashable {
     }
     
     public var hourFormatted: String {
+        guard !(hour.isCurrentHour) else {
+            return String(localized: "Now")
+        }
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "H"
         formatter.locale = Locale(identifier: "en_US_POSIX")

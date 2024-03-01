@@ -182,7 +182,7 @@ final class CurrentCityHeaderView: UIView {
         // currentTempLabel
         currentTempLabel.text = viewModel.currentTemperature
         // conditionLabel
-        conditionLabel.text = viewModel.condition
+        conditionLabel.text = viewModel.condition.capitalized
     }
 }
 
