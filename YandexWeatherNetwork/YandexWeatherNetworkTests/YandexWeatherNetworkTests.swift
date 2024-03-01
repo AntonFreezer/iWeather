@@ -9,28 +9,50 @@ import XCTest
 @testable import YandexWeatherNetwork
 
 final class YandexWeatherNetworkTests: XCTestCase {
-
+    
+    var sut: YandexWeatherNetworkClient!
+    
+    /// either add env.xcconfig manually and define your the API_KEY
+    /// or refactor the network client and hardcode your apikey
+    func testApiKey() {
+        let apiKey = ProcessInfo.processInfo.environment["API_KEY"]!
+        print(apiKey)
+        XCTAssertFalse(apiKey.isEmpty)
+    }
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        sut = DefaultYandexWeatherNetworkClient(
+            baseURL: "https://api.weather.yandex.ru/v2",
+            apiKey: ProcessInfo.processInfo.environment["API_KEY"]!
+        )
     }
-
+    
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        try super.tearDownWithError()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testDefaultWeatherRequest() {
+        let expectation = expectation(description: "Yandex Weather weather data default request")
+        
+        Task {
+            let result = await sut.sendRequest(
+                request: YandexWeatherNetworkForecastsRequest(
+                    latitude: 55.7558,
+                    longitude: 37.6173))
+            expectation.fulfill()
+            
+            guard let value = try? result.get() else {
+                XCTFail("Failed to fetch or cast weather data")
+                return
+            }
+            
+            XCTAssertTrue(value.forecasts.allSatisfy { $0.hours.count == 24 })
+            
         }
+        
+        wait(for: [expectation])
     }
-
+    
 }

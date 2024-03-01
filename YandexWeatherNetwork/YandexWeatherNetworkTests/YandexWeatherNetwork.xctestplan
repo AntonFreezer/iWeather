@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "BF928B87-762D-4044-8FAF-FD1399F3CC85",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "API_KEY",
+        "value" : "$(API_KEY)"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:YandexWeatherNetwork.xcodeproj",
+      "identifier" : "961BE5EA2B8D184000D8741D",
+      "name" : "YandexWeatherNetworkTests"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:YandexWeatherNetwork.xcodeproj",
+        "identifier" : "961BE5EA2B8D184000D8741D",
+        "name" : "YandexWeatherNetworkTests"
+      }
+    }
+  ],
+  "version" : 1
+}
