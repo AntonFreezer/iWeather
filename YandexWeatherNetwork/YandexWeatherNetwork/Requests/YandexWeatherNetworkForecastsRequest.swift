@@ -20,7 +20,7 @@ public struct YandexWeatherNetworkForecastsRequest: YandexWeatherRequest {
                 limit: Int = 1) {
         parameters["lat"] = "\(latitude)"
         parameters["lon"] = "\(longitude)"
-        parameters["language"] = language
+        parameters["lang"] = language
         parameters["limit"] = "\(limit)"
     }
     
