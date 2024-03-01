@@ -52,6 +52,8 @@ final class CurrentCityHeaderView: UIView {
         label.font = .poppinsSemiBold(ofSize: 36)
         label.textColor = .white
         label.textAlignment = .right
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+
         
         return label
     }()
@@ -63,6 +65,7 @@ final class CurrentCityHeaderView: UIView {
         label.textColor = .white
         label.textAlignment = .right
         label.numberOfLines = 0
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         return label
     }()
@@ -128,18 +131,18 @@ final class CurrentCityHeaderView: UIView {
         nameLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(25)
-            make.trailing.equalToSuperview().multipliedBy(0.5)
+            make.trailing.equalTo(currentTempLabel.snp.leading)
         }
         // descriptionlabel
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(5)
-            make.leading.trailing.equalTo(nameLabel)
+            make.leading.equalTo(nameLabel)
+            make.trailing.equalTo(conditionLabel.snp.leading)
         }
         // currentTempLabel
         currentTempLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-25)
-            make.leading.equalTo(nameLabel.snp.trailing)
         }
         // conditionLabel
         conditionLabel.snp.makeConstraints { make in
