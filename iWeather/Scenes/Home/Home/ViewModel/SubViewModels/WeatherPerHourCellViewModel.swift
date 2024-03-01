@@ -16,7 +16,7 @@ struct WeatherPerHourCellViewModel: Hashable {
     public var imageURL: URL? {
         URL(string: hour.iconURL)
     }
-        
+    
     public var currentTemperature: String {
         "\(hour.currentTemp)°C"
     }
@@ -28,17 +28,20 @@ struct WeatherPerHourCellViewModel: Hashable {
         
         if let date = formatter.date(from: hour.hour) {
             formatter.dateFormat = "h:mma"
-            let formattedTime = formatter.string(from: date)
+            var formattedTime = formatter.string(from: date)
+            if formattedTime == "12:00AM" {
+                formattedTime = "0:00AM"
+            }
             return formattedTime
         } else {
             return "0:00AM"
         }
     }
-        
+    
     //MARK: - Lifecycle && Setup
     init(hour: WeatherPerHour) {
         self.hour = hour
     }
-
+    
 }
 

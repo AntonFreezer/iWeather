@@ -52,9 +52,34 @@ final class HomeViewController: GenericViewController<HomeView> {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let section: HomeViewModel.Section = .weatherPerHourList
+        
+        if let currentCity = viewModel.currentCity,
+           let sectionIndex = HomeViewModel.Section.allCases.firstIndex(of: section) {
+            
+            let timezoneIdentifier = currentCity.timezoneIdentifier
+            let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = TimeZone(identifier: timezoneIdentifier)
+            
+            let currentHour = Calendar.current.component(.hour, from: dateFormatter.date(from: currentCity.date)!)
+            
+            let hourIndexToScroll = currentHour - 1
+            guard 0..<24 ~= hourIndexToScroll else { return }
+            
+            let indexPath = IndexPath(item: hourIndexToScroll, section: sectionIndex)
+            rootView.collectionView.scrollToItem(
+                at: indexPath,
+                at: .left,
+                animated: true)
+        }
+    }
     private func setupView() {
         self.showLoading()
         rootView.viewModel = self.viewModel

@@ -178,7 +178,7 @@ final class CurrentCityHeaderView: UIView {
         // nameLabel
         nameLabel.text = viewModel.name
         // descriptionlabel
-        descriptionLabel.text = viewModel.currentDate + viewModel.temperatureInterval
+        descriptionLabel.text = "\(viewModel.currentDate) \(viewModel.temperatureInterval)"
         // currentTempLabel
         currentTempLabel.text = viewModel.currentTemperature
         // conditionLabel
