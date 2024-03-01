@@ -383,6 +383,7 @@
 		};
 		961BE5F62B8D184000D8741D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96C872402B90FD3A0016727A /* env.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
