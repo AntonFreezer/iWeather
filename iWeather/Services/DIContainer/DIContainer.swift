@@ -6,9 +6,16 @@
 //
 
 import Foundation
+import YandexWeatherNetwork
 
 final class DIContainer {
     static let shared = DIContainer()
     
-    init() { }
+    let yandexWeatherNetworkService: YandexWeatherNetworkClient
+    
+    init() {
+        self.yandexWeatherNetworkService = DefaultYandexWeatherNetworkClient(
+            baseURL: "https://api.weather.yandex.ru/v2",
+            apiKey: ProcessInfo.processInfo.environment["API_KEY"])
+    }
 }
