@@ -40,6 +40,7 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
         label.font = .poppinsMedium(ofSize: 15)
         label.textColor = .white
         label.textAlignment = .center
+        label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
         return label
     }()
@@ -77,7 +78,7 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
         containerView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(tempLabel)
+            make.bottom.equalTo(hourLabel.snp.top)
         }
         
         // imageView
@@ -89,13 +90,13 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
         
         // tempLabel
         tempLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(-10)
+            make.top.equalTo(imageView.snp.bottom).offset(1)
             make.centerX.equalToSuperview()
         }
         
         // hourLabel
         hourLabel.snp.makeConstraints { make in
-            make.top.equalTo(containerView.snp.bottom).offset(3)
+            make.top.equalTo(tempLabel.snp.bottom).offset(7)
             make.bottom.centerX.equalToSuperview()
         }
     }
@@ -107,8 +108,7 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
         self.hourLabel.text = nil
     }
     
-    //MARK: - ViewModel
-    
+    //MARK: - Public
     public func configure(with viewModel: WeatherPerHourCellViewModel) {
         // nameLabel
         tempLabel.text = viewModel.currentTemperature
@@ -125,5 +125,9 @@ final class WeatherPerHourCollectionViewCell: UICollectionViewCell {
                       .processor(SVGImgProcessor())
                      ])
         
+    }
+    
+    public func setHourLabelAsCurrent() {
+        self.hourLabel.text = "Now"
     }
 }

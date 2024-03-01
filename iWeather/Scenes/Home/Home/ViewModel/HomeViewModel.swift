@@ -7,12 +7,15 @@
 
 import UIKit
 import Combine
+import YandexWeatherNetwork
 
 final class HomeViewModel: NSObject, IOViewModelType {
     
     //MARK: - Properties
     typealias Router = Routable
     private(set) var router: any Router
+    
+    private let networkService: YandexWeatherNetworkClient
     
     enum Section: Hashable, CaseIterable {
         case citiesList
@@ -30,8 +33,9 @@ final class HomeViewModel: NSObject, IOViewModelType {
     var cancellables = Set<AnyCancellable>()
     
     //MARK: - Setup && Lifecycle
-    init(router: any Router) {
+    init(router: any Router, networkService: YandexWeatherNetworkClient) {
         self.router = router
+        self.networkService = networkService
     }
     
     //MARK: - IO
@@ -51,8 +55,7 @@ final class HomeViewModel: NSObject, IOViewModelType {
         input.sink { [unowned self] event in
             switch event {
             case .viewDidLoad:
-                fetchWeather()
-                currentCity = self.cities.first!
+                Task { await fetchWeather() }
             case .didTapProfile:
                 if let router = router as? (any HomeRouter) {
                     router.process(route: .profileScreen)
@@ -62,7 +65,8 @@ final class HomeViewModel: NSObject, IOViewModelType {
                     router.process(route: .settingsScreen)
                 }
             case .didSelectCity(let city):
-                return
+                currentCity = cities.first(where: { $0 == city })
+                subject.send(.didLoadCities)
             }
         }.store(in: &cancellables)
         
@@ -73,11 +77,60 @@ final class HomeViewModel: NSObject, IOViewModelType {
 
 //MARK: - Network
 private extension HomeViewModel {
-    func fetchWeather() {
-        
-        self.cities = City.mockCities
-        subject.send(.didLoadCities)
+    func fetchWeather() async {
+        await withTaskGroup(of: City?.self) { group in
+            for location in City.citiesWithLocations.values {
+                group.addTask {
+                    let result = await self.networkService.sendRequest(request: YandexWeatherNetworkForecastsRequest(
+                        latitude: location.coordinate.latitude,
+                        longitude: location.coordinate.longitude))
+                    
+                    switch result {
+                    case .success(let data):
+                        let tz = data.info.tzinfo.name
+                        return City(name: data.geoObject.locality.name,
+                                    date: data.nowDt,
+                                    timezoneIdentifier: tz,
+                                    currentTemp: "\(data.fact.temp)",
+                                    condition: "\(data.fact.condition)",
+                                    hours: data.forecasts.first!.hours.map { .init(
+                                        hour: $0.hour,
+                                        isCurrentHour: self.isCurrentHour(
+                                            fromTimezone: tz, hour: $0.hour),
+                                        currentTemp: "\($0.temp)",
+                                        iconName: $0.icon) })
+                    case .failure(let failure):
+                        self.subject.send(.didReceiveError(failure))
+                        return nil
+                    }
+                }
+            }
+            
+            var cities = [City]()
+            for await city in group {
+                if let city {
+                    cities.append(city)
+                }
+            }
+            
+            self.currentCity = cities.first
+            self.cities = cities
+            subject.send(.didLoadCities)
+        }
     }
+    
+    func isCurrentHour(fromTimezone identifier: String, hour: String) -> Bool {
+        let timezone = TimeZone(identifier: identifier) ?? .autoupdatingCurrent
+        let currentHour = Calendar.current
+            .dateComponents(in: timezone, from: Date()).hour ?? 0
+        
+        if String(currentHour) == hour {
+            return true
+        }
+        
+        return false
+    }
+    
 }
 
 //MARK: - CollectionView Rendering
