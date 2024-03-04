@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 import Combine
 import YandexWeatherNetwork
 
@@ -55,7 +56,7 @@ final class HomeViewModel: NSObject, IOViewModelType {
         input.sink { [unowned self] event in
             switch event {
             case .viewDidLoad:
-                Task { await fetchWeather() }
+                fetchWeather()
             case .didTapProfile:
                 if let router = router as? (any HomeRouter) {
                     router.process(route: .profileScreen)
@@ -77,46 +78,61 @@ final class HomeViewModel: NSObject, IOViewModelType {
 
 //MARK: - Network
 private extension HomeViewModel {
-    func fetchWeather() async {
-        await withTaskGroup(of: City?.self) { group in
-            for location in City.citiesWithLocations.values {
-                group.addTask {
-                    let result = await self.networkService.sendRequest(request: YandexWeatherNetworkForecastsRequest(
-                        latitude: location.coordinate.latitude,
-                        longitude: location.coordinate.longitude))
-                    
-                    switch result {
-                    case .success(let data):
-                        let tz = data.info.tzinfo.name
-                        return City(name: data.geoObject.locality.name,
-                                    date: data.nowDt,
-                                    timezoneIdentifier: tz,
-                                    currentTemp: "\(data.fact.temp)",
-                                    condition: "\(data.fact.condition)",
-                                    hours: data.forecasts.first!.hours.map { .init(
-                                        hour: $0.hour,
-                                        isCurrentHour: self.isCurrentHour(
-                                            fromTimezone: tz, hour: $0.hour),
-                                        currentTemp: "\($0.temp)",
-                                        iconName: $0.icon) })
-                    case .failure(let failure):
-                        self.subject.send(.didReceiveError(failure))
-                        return nil
-                    }
-                }
-            }
-            
-            var cities = [City]()
-            for await city in group {
-                if let city {
-                    cities.append(city)
-                }
-            }
-            
+    
+    func fetchWeather() {
+        Task {
+            let cities = await fetchCitiesWeather()
             self.currentCity = cities.first
             self.cities = cities
             subject.send(.didLoadCities)
         }
+    }
+    
+    func fetchCitiesWeather() async -> [City] {
+        let cities = await withTaskGroup(
+            of: City?.self, returning: [City].self) { group in
+                City.citiesWithLocations.values.forEach { location in
+                    group.addTask {
+                        await self.fetchCityWeather(with: location.coordinate)
+                    }
+                }
+                
+                return await group.reduce(into: [City?]()) { $0.append($1) }
+                    .compactMap { $0 }
+        }
+        
+        return cities
+    }
+    
+    func fetchCityWeather(with coordinate: CLLocationCoordinate2D) async -> City? {
+        async let result = self.networkService.sendRequest(
+            request: YandexWeatherNetworkForecastsRequest(
+                latitude: coordinate.latitude,
+                longitude: coordinate.longitude))
+        
+        switch await result {
+        case .success(let data):
+            return processCityData(data: data)
+        case .failure(let error):
+            self.subject.send(.didReceiveError(error))
+            return nil
+        }
+        
+    }
+    
+    func processCityData(data: YandexWeatherNetworkForecastsRequest.Response) -> City {
+        let tz = data.info.tzinfo.name
+        return City(name: data.geoObject.locality.name,
+                    date: data.nowDt,
+                    timezoneIdentifier: tz,
+                    currentTemp: "\(data.fact.temp)",
+                    condition: "\(data.fact.condition)",
+                    hours: data.forecasts.first!.hours.map { .init(
+                        hour: $0.hour,
+                        isCurrentHour: self.isCurrentHour(
+                            fromTimezone: tz, hour: $0.hour),
+                        currentTemp: "\($0.temp)",
+                        iconName: $0.icon) })
     }
     
     func isCurrentHour(fromTimezone identifier: String, hour: String) -> Bool {
