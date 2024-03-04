@@ -82,10 +82,10 @@ final class HomeViewController: GenericViewController<HomeView> {
             String(localized: "Couldn't load cities"),
             message: error.localizedDescription,
             actionTitle: String(localized: "Refresh"),
-            action: { stub in
+            action: { [weak self] stub in
                 stub.removeFromSuperview()
-                self.showLoading()
-                self.subject.send(.viewDidLoad)
+                self?.showLoading()
+                self?.subject.send(.viewDidLoad)
             }
         )
     }
