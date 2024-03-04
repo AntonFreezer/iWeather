@@ -10,23 +10,10 @@
 		96151F712B90EB09001177C5 /* YandexWeatherNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F702B90EB09001177C5 /* YandexWeatherNetworkClient.swift */; };
 		96151F732B90EB82001177C5 /* YandexNetworkWeatherRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F722B90EB82001177C5 /* YandexNetworkWeatherRequest.swift */; };
 		96151F752B90EBBC001177C5 /* YandexWeatherNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151F742B90EBBC001177C5 /* YandexWeatherNetworkError.swift */; };
-		961BE5EC2B8D184000D8741D /* YandexWeatherNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961BE5E32B8D184000D8741D /* YandexWeatherNetwork.framework */; };
-		961BE5F12B8D184000D8741D /* YandexWeatherNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE5F02B8D184000D8741D /* YandexWeatherNetworkTests.swift */; };
 		961BE5F22B8D184000D8741D /* YandexWeatherNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 961BE5E62B8D184000D8741D /* YandexWeatherNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96C872412B90FD3A0016727A /* env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 96C872402B90FD3A0016727A /* env.xcconfig */; };
 		96C872482B9117CB0016727A /* YandexWeatherNetworkForecastsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C872472B9117CB0016727A /* YandexWeatherNetworkForecastsEntity.swift */; };
 		96C8724A2B911D270016727A /* YandexWeatherNetworkForecastsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C872492B911D270016727A /* YandexWeatherNetworkForecastsRequest.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		961BE5ED2B8D184000D8741D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 961BE5DA2B8D183F00D8741D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 961BE5E22B8D184000D8741D;
-			remoteInfo = YandexWeatherNetwork;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		96151F702B90EB09001177C5 /* YandexWeatherNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkClient.swift; sourceTree = "<group>"; };
@@ -34,10 +21,6 @@
 		96151F742B90EBBC001177C5 /* YandexWeatherNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkError.swift; sourceTree = "<group>"; };
 		961BE5E32B8D184000D8741D /* YandexWeatherNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YandexWeatherNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		961BE5E62B8D184000D8741D /* YandexWeatherNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YandexWeatherNetwork.h; sourceTree = "<group>"; };
-		961BE5EB2B8D184000D8741D /* YandexWeatherNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YandexWeatherNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		961BE5F02B8D184000D8741D /* YandexWeatherNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkTests.swift; sourceTree = "<group>"; };
-		96C8723F2B90FC0C0016727A /* YandexWeatherNetwork.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = YandexWeatherNetwork.xctestplan; sourceTree = "<group>"; };
-		96C872402B90FD3A0016727A /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		96C872472B9117CB0016727A /* YandexWeatherNetworkForecastsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkForecastsEntity.swift; sourceTree = "<group>"; };
 		96C872492B911D270016727A /* YandexWeatherNetworkForecastsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkForecastsRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,14 +33,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		961BE5E82B8D184000D8741D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				961BE5EC2B8D184000D8741D /* YandexWeatherNetwork.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -65,7 +40,6 @@
 			isa = PBXGroup;
 			children = (
 				961BE5E52B8D184000D8741D /* YandexWeatherNetwork */,
-				961BE5EF2B8D184000D8741D /* YandexWeatherNetworkTests */,
 				961BE5E42B8D184000D8741D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,7 +48,6 @@
 			isa = PBXGroup;
 			children = (
 				961BE5E32B8D184000D8741D /* YandexWeatherNetwork.framework */,
-				961BE5EB2B8D184000D8741D /* YandexWeatherNetworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,16 +63,6 @@
 				96C872452B91016D0016727A /* Requests */,
 			);
 			path = YandexWeatherNetwork;
-			sourceTree = "<group>";
-		};
-		961BE5EF2B8D184000D8741D /* YandexWeatherNetworkTests */ = {
-			isa = PBXGroup;
-			children = (
-				96C8723F2B90FC0C0016727A /* YandexWeatherNetwork.xctestplan */,
-				961BE5F02B8D184000D8741D /* YandexWeatherNetworkTests.swift */,
-				96C872402B90FD3A0016727A /* env.xcconfig */,
-			);
-			path = YandexWeatherNetworkTests;
 			sourceTree = "<group>";
 		};
 		96C872452B91016D0016727A /* Requests */ = {
@@ -150,24 +113,6 @@
 			productReference = 961BE5E32B8D184000D8741D /* YandexWeatherNetwork.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		961BE5EA2B8D184000D8741D /* YandexWeatherNetworkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 961BE5F82B8D184000D8741D /* Build configuration list for PBXNativeTarget "YandexWeatherNetworkTests" */;
-			buildPhases = (
-				961BE5E72B8D184000D8741D /* Sources */,
-				961BE5E82B8D184000D8741D /* Frameworks */,
-				961BE5E92B8D184000D8741D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				961BE5EE2B8D184000D8741D /* PBXTargetDependency */,
-			);
-			name = YandexWeatherNetworkTests;
-			productName = YandexWeatherNetworkTests;
-			productReference = 961BE5EB2B8D184000D8741D /* YandexWeatherNetworkTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -181,9 +126,6 @@
 					961BE5E22B8D184000D8741D = {
 						CreatedOnToolsVersion = 15.2;
 						LastSwiftMigration = 1520;
-					};
-					961BE5EA2B8D184000D8741D = {
-						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
@@ -201,7 +143,6 @@
 			projectRoot = "";
 			targets = (
 				961BE5E22B8D184000D8741D /* YandexWeatherNetwork */,
-				961BE5EA2B8D184000D8741D /* YandexWeatherNetworkTests */,
 			);
 		};
 /* End PBXProject section */
@@ -211,14 +152,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		961BE5E92B8D184000D8741D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				96C872412B90FD3A0016727A /* env.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,23 +170,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		961BE5E72B8D184000D8741D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				961BE5F12B8D184000D8741D /* YandexWeatherNetworkTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		961BE5EE2B8D184000D8741D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 961BE5E22B8D184000D8741D /* YandexWeatherNetwork */;
-			targetProxy = 961BE5ED2B8D184000D8741D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		961BE5F32B8D184000D8741D /* Debug */ = {
@@ -383,7 +300,6 @@
 		};
 		961BE5F62B8D184000D8741D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96C872402B90FD3A0016727A /* env.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -447,41 +363,6 @@
 			};
 			name = Release;
 		};
-		961BE5F92B8D184000D8741D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96C872402B90FD3A0016727A /* env.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y5WSGR4QBW;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.antonkh.YandexWeatherNetworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		961BE5FA2B8D184000D8741D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y5WSGR4QBW;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.antonkh.YandexWeatherNetworkTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -499,15 +380,6 @@
 			buildConfigurations = (
 				961BE5F62B8D184000D8741D /* Debug */,
 				961BE5F72B8D184000D8741D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		961BE5F82B8D184000D8741D /* Build configuration list for PBXNativeTarget "YandexWeatherNetworkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				961BE5F92B8D184000D8741D /* Debug */,
-				961BE5FA2B8D184000D8741D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

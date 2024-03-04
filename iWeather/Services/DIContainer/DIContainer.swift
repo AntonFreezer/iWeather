@@ -16,6 +16,6 @@ final class DIContainer {
     init() {
         self.yandexWeatherNetworkService = DefaultYandexWeatherNetworkClient(
             baseURL: "https://api.weather.yandex.ru/v2",
-            apiKey: ProcessInfo.processInfo.environment["API_KEY"])
+            apiKey: "YOUR_API_KEY") // Insert your YandexWeather ApiKey there
     }
 }
