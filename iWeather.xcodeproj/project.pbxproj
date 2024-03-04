@@ -65,7 +65,7 @@
 		96488C0C2B8E392F00B866B6 /* CityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96488C0B2B8E392F00B866B6 /* CityCollectionViewCell.swift */; };
 		96488C0E2B8E393B00B866B6 /* WeatherPerHourCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96488C0D2B8E393B00B866B6 /* WeatherPerHourCollectionViewCell.swift */; };
 		967D79282B8E91AE00DCDD75 /* SVGImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967D79272B8E91AE00DCDD75 /* SVGImageProcessor.swift */; };
-		96EE3E2D2B91E8CC00084C62 /* env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 96EE3E2C2B91E8CC00084C62 /* env.xcconfig */; };
+		968B9D832B95D98F003A105F /* env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 968B9D822B95D98F003A105F /* env.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,7 +155,7 @@
 		96488C0B2B8E392F00B866B6 /* CityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCollectionViewCell.swift; sourceTree = "<group>"; };
 		96488C0D2B8E393B00B866B6 /* WeatherPerHourCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPerHourCollectionViewCell.swift; sourceTree = "<group>"; };
 		967D79272B8E91AE00DCDD75 /* SVGImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImageProcessor.swift; sourceTree = "<group>"; };
-		96EE3E2C2B91E8CC00084C62 /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
+		968B9D822B95D98F003A105F /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,7 +257,7 @@
 				961BE5C52B8D17ED00D8741D /* AppDelegate.swift */,
 				961BE5C72B8D17ED00D8741D /* SceneDelegate.swift */,
 				961BE5D32B8D17EF00D8741D /* Info.plist */,
-				96EE3E2C2B91E8CC00084C62 /* env.xcconfig */,
+				968B9D822B95D98F003A105F /* env.xcconfig */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -646,7 +646,7 @@
 				96151F522B90708E001177C5 /* Poppins-SemiBold.ttf in Resources */,
 				961BE5CF2B8D17EF00D8741D /* Assets.xcassets in Resources */,
 				96151F4F2B90708E001177C5 /* Roboto-Regular.ttf in Resources */,
-				96EE3E2D2B91E8CC00084C62 /* env.xcconfig in Resources */,
+				968B9D832B95D98F003A105F /* env.xcconfig in Resources */,
 				96151F512B90708E001177C5 /* Poppins-Medium.ttf in Resources */,
 				961BE6122B8D1B1C00D8741D /* Localizable.xcstrings in Resources */,
 				96151F502B90708E001177C5 /* Poppins-Regular.ttf in Resources */,
@@ -724,7 +724,7 @@
 /* Begin XCBuildConfiguration section */
 		961BE5D42B8D17EF00D8741D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96EE3E2C2B91E8CC00084C62 /* env.xcconfig */;
+			baseConfigurationReference = 968B9D822B95D98F003A105F /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -844,7 +844,7 @@
 		};
 		961BE5D72B8D17EF00D8741D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96EE3E2C2B91E8CC00084C62 /* env.xcconfig */;
+			baseConfigurationReference = 968B9D822B95D98F003A105F /* env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -13,7 +13,7 @@
 		961BE5EC2B8D184000D8741D /* YandexWeatherNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961BE5E32B8D184000D8741D /* YandexWeatherNetwork.framework */; };
 		961BE5F12B8D184000D8741D /* YandexWeatherNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961BE5F02B8D184000D8741D /* YandexWeatherNetworkTests.swift */; };
 		961BE5F22B8D184000D8741D /* YandexWeatherNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 961BE5E62B8D184000D8741D /* YandexWeatherNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96C872412B90FD3A0016727A /* env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 96C872402B90FD3A0016727A /* env.xcconfig */; };
+		968B9D812B95D971003A105F /* env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 968B9D802B95D971003A105F /* env.xcconfig */; };
 		96C872482B9117CB0016727A /* YandexWeatherNetworkForecastsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C872472B9117CB0016727A /* YandexWeatherNetworkForecastsEntity.swift */; };
 		96C8724A2B911D270016727A /* YandexWeatherNetworkForecastsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C872492B911D270016727A /* YandexWeatherNetworkForecastsRequest.swift */; };
 /* End PBXBuildFile section */
@@ -36,8 +36,8 @@
 		961BE5E62B8D184000D8741D /* YandexWeatherNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YandexWeatherNetwork.h; sourceTree = "<group>"; };
 		961BE5EB2B8D184000D8741D /* YandexWeatherNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YandexWeatherNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		961BE5F02B8D184000D8741D /* YandexWeatherNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkTests.swift; sourceTree = "<group>"; };
+		968B9D802B95D971003A105F /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		96C8723F2B90FC0C0016727A /* YandexWeatherNetwork.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = YandexWeatherNetwork.xctestplan; sourceTree = "<group>"; };
-		96C872402B90FD3A0016727A /* env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = env.xcconfig; sourceTree = "<group>"; };
 		96C872472B9117CB0016727A /* YandexWeatherNetworkForecastsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkForecastsEntity.swift; sourceTree = "<group>"; };
 		96C872492B911D270016727A /* YandexWeatherNetworkForecastsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexWeatherNetworkForecastsRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,7 +97,7 @@
 			children = (
 				96C8723F2B90FC0C0016727A /* YandexWeatherNetwork.xctestplan */,
 				961BE5F02B8D184000D8741D /* YandexWeatherNetworkTests.swift */,
-				96C872402B90FD3A0016727A /* env.xcconfig */,
+				968B9D802B95D971003A105F /* env.xcconfig */,
 			);
 			path = YandexWeatherNetworkTests;
 			sourceTree = "<group>";
@@ -218,7 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96C872412B90FD3A0016727A /* env.xcconfig in Resources */,
+				968B9D812B95D971003A105F /* env.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,7 +448,7 @@
 		};
 		961BE5F92B8D184000D8741D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96C872402B90FD3A0016727A /* env.xcconfig */;
+			baseConfigurationReference = 968B9D802B95D971003A105F /* env.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
